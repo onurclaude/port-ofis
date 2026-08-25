@@ -1,0 +1,94 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@theme {
+  /* Brand palette — gold is an accent only, never a dominant fill. */
+  --color-ink: #090909;
+  --color-ink-soft: #111111;
+  --color-surface: #151515;
+  --color-surface-hover: #1b1b1b;
+  --color-gold: #c9a24a;
+  --color-gold-light: #e1c16e;
+  --color-ivory: #f5f5f0;
+  --color-text: #f5f5f5;
+  --color-muted: #a5a5a5;
+  --color-hairline: rgba(201, 162, 74, 0.22);
+  --color-hairline-soft: rgba(245, 245, 245, 0.08);
+
+  --shadow-gold-glow: 0 0 0 1px rgba(201, 162, 74, 0.35), 0 8px 30px -8px rgba(201, 162, 74, 0.25);
+}
+
+@theme inline {
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-inter);
+  --font-script: var(--font-script-accent);
+}
+
+@media (prefers-color-scheme: light) {
+  /* The brand is deliberately dark-first across the whole site; we do not
+     offer a light theme (matches tabela/kartvizit reference material). */
+}
+
+* {
+  border-color: var(--color-hairline-soft);
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-text);
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--color-gold);
+  color: var(--color-ink);
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* Slim, dark-matched scrollbar so it doesn't fight the premium palette. */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink);
+}
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 999px;
+  border: 2px solid var(--color-ink);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold);
+}
+
+.gold-text-gradient {
+  background: linear-gradient(100deg, var(--color-gold) 0%, var(--color-gold-light) 45%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-noise {
+  background-image: radial-gradient(circle at 1px 1px, rgba(245, 245, 245, 0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+*.log
+npm-debug.log*
+
+# Local env files may hold real secrets — never ship them into a build layer.
+# .env.example is intentionally NOT excluded (no secrets, safe as a reference).
+.env
+.env.local
+.env*.local
+
+README.md
