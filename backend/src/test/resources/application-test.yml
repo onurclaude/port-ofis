@@ -1,0 +1,14 @@
+spring:
+  flyway:
+    enabled: true
+
+admin:
+  jwt:
+    secret: test-secret-key-for-jwt-signing-in-tests-only
+    expiration-hours: 12
+  default:
+    username: ""
+    password: ""
+
+cors:
+  allowed-origin: http://localhost:3000
