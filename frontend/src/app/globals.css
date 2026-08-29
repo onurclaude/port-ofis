@@ -82,6 +82,44 @@ body {
   background-size: 22px 22px;
 }
 
+/*
+ * Fluid type-scale + shadow utilities ported from the "Standart Web Sitesi"
+ * design demo (company-template) — see components/web-design-demos/. Not
+ * used elsewhere on the site yet, but harmless additions (no existing class
+ * names touched).
+ */
+@layer components {
+  .text-eyebrow {
+    font-size: clamp(0.75rem, 0.72rem + 0.1vw, 0.8125rem);
+    letter-spacing: 0.18em;
+  }
+
+  .text-body-lg {
+    font-size: clamp(1rem, 0.97rem + 0.15vw, 1.125rem);
+    line-height: 1.65;
+  }
+
+  .text-display-1 {
+    font-size: clamp(3rem, 2.2rem + 4vw, 5rem);
+    line-height: 1.03;
+  }
+
+  .text-display-2 {
+    font-size: clamp(2.25rem, 1.8rem + 2.2vw, 3rem);
+    line-height: 1.08;
+  }
+
+  .text-display-3 {
+    font-size: clamp(1.5rem, 1.3rem + 1vw, 1.875rem);
+    line-height: 1.2;
+  }
+}
+
+@theme {
+  --shadow-soft: 0 24px 60px -24px rgba(0, 0, 0, 0.65);
+  --shadow-elevated: 0 32px 80px -20px rgba(0, 0, 0, 0.75);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

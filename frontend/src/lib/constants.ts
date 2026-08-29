@@ -14,6 +14,13 @@ export const FALLBACK_PHONE = "0312 911 81 02";
 export const FALLBACK_WEBSITE = "portofiskirtasiye.com.tr";
 
 /**
+ * Products in this category link to a live design demo at
+ * /web-tasarimlari/[slug] instead of opening the standard product modal —
+ * see ProductCard and lib/web-design-demos.tsx.
+ */
+export const WEBSITE_DESIGN_CATEGORY_SLUG = "web-sitesi-tasarim-ve-destek";
+
+/**
  * Static, editorial content for the Baskı Merkezi page.
  * Per FRONTEND_SPEC §4: these are a fixed list of offerings, not admin-managed
  * `products`/`services` rows, to avoid schema over-engineering in this phase.
