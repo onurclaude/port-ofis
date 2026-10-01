@@ -1,6 +1,7 @@
 import type { ComponentType } from "react";
 import { StandartWebSitesiDemo } from "@/components/web-design-demos/standart-web-sitesi";
 import { TekSayfaTanitimSitesiDemo } from "@/components/web-design-demos/tek-sayfa-tanitim-sitesi";
+import { DijitalRestoranMenusuDemo } from "@/components/web-design-demos/dijital-restoran-menusu";
 
 export interface WebDesignDemo {
   /** Package name shown in the preview bar and page metadata. */
@@ -18,4 +19,5 @@ export interface WebDesignDemo {
 export const WEB_DESIGN_DEMOS: Record<string, WebDesignDemo> = {
   "standart-web-sitesi": { title: "Standart Web Sitesi", Component: StandartWebSitesiDemo },
   "tek-sayfa-tanitim-sitesi": { title: "Tek Sayfa Tanıtım Sitesi", Component: TekSayfaTanitimSitesiDemo },
+  "dijital-restoran-menusu": { title: "Dijital Restoran Menüsü", Component: DijitalRestoranMenusuDemo },
 };

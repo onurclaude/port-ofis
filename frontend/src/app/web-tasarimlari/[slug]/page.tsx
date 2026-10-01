@@ -9,7 +9,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!demo) return {};
 
   return {
-    title: `${demo.title} Örneği | Port Ofis Kırtasiye`,
+    title: `${demo.title} Örneği`,
     description: `Port Ofis Kırtasiye'nin sunduğu '${demo.title}' paketinin canlı bir örneği.`,
   };
 }
