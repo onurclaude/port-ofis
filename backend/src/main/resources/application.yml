@@ -32,3 +32,10 @@ admin:
 
 cors:
   allowed-origin: ${CORS_ALLOWED_ORIGIN:http://localhost:3000}
+
+# Yeni iletişim/teklif mesajı geldiğinde bildirim maili.
+# spring.mail.* (SPRING_MAIL_HOST vb.) veya CONTACT_NOTIFY_TO boşsa bildirim atlanır, mesaj yine kaydedilir.
+contact:
+  notification:
+    to: ${CONTACT_NOTIFY_TO:}
+    from: ${CONTACT_NOTIFY_FROM:}

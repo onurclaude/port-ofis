@@ -10,6 +10,7 @@ import com.portofis.backend.entity.ContactMessageStatus;
 import com.portofis.backend.exception.NotFoundException;
 import com.portofis.backend.mapper.ContactMessageMapper;
 import com.portofis.backend.repository.ContactMessageRepository;
+import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,17 +22,22 @@ public class ContactMessageService {
 
     private final ContactMessageRepository contactMessageRepository;
     private final ContactMessageMapper contactMessageMapper;
+    private final ApplicationEventPublisher eventPublisher;
 
     public ContactMessageService(ContactMessageRepository contactMessageRepository,
-                                  ContactMessageMapper contactMessageMapper) {
+                                  ContactMessageMapper contactMessageMapper,
+                                  ApplicationEventPublisher eventPublisher) {
         this.contactMessageRepository = contactMessageRepository;
         this.contactMessageMapper = contactMessageMapper;
+        this.eventPublisher = eventPublisher;
     }
 
     @Transactional
     public ContactMessageResponse submit(ContactMessageRequest request) {
         ContactMessageEntity entity = contactMessageMapper.toEntity(request);
-        return contactMessageMapper.toDto(contactMessageRepository.save(entity));
+        ContactMessageResponse saved = contactMessageMapper.toDto(contactMessageRepository.save(entity));
+        eventPublisher.publishEvent(new ContactMessageSubmittedEvent(saved));
+        return saved;
     }
 
     public PageResponse<ContactMessageResponse> findAll(ContactMessageStatus status, int page, int size) {
