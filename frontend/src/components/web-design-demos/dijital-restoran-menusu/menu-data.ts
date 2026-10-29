@@ -70,6 +70,8 @@ export const menuTenant: MenuTenant = {
   showAllergens: true,
 };
 
+const IMAGE_BASE = "/web-tasarimlari/dijital-restoran-menusu/yemekler";
+
 function product(
   id: string,
   name: string,
@@ -88,7 +90,7 @@ function product(
     allergens: [],
     dietTags: [],
     badge: null,
-    imageUrl: null,
+    imageUrl: `${IMAGE_BASE}/${id}.jpg`,
     ...extra,
   };
 }
@@ -205,6 +207,29 @@ export const menuCategories: MenuCategory[] = [
       }),
     ],
   },
+];
+
+export interface PhotoCredit {
+  dish: string;
+  author: string;
+  license: string;
+  url: string;
+}
+
+// Wikimedia Commons photos; CC BY / CC BY-SA require attribution (shown in the info sheet).
+export const photoCredits: PhotoCredit[] = [
+  { dish: "Trüflü Menemen", author: "E4024", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Turkish_egg_dish_Menemen.jpg" },
+  { dish: "Burrata & Domates", author: "Gerda Arendt", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Tomato_salad_with_burrata,_Limburg.jpg" },
+  { dish: "Bistro Burger", author: "Ceeseven", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Cheeseburger_on_Plate.jpg" },
+  { dish: "Füme Somon Tost", author: "Andy Li", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:SMOKED_SALMON_TOAST_-_17_GRAMS_2025-09-20.jpg" },
+  { dish: "Avokado Toast", author: "Andy Li", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Smashed_avocado_%26_poached_eggs_-_M%26S_Caf%C3%A9_2023-12-28.jpg" },
+  { dish: "Kavrulmuş Karnabahar", author: "Jennifer from Vancouver, Canada", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Vegan_crispy_cauliflower,_tahini_and_pita_bread_(7737974892).jpg" },
+  { dish: "Ahtapot Izgara", author: "Daderot", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Grilled_octopus_with_potatoes_and_chorizo_-_Cambridge,_MA.jpg" },
+  { dish: "Ağır Pişmiş Kaburga", author: "Paul Lowry", license: "CC BY 4.0", url: "https://commons.wikimedia.org/wiki/File:Slow_Braised_Short_Rib_NYC.jpg" },
+  { dish: "Acı Rigatoni", author: "10Rosso", license: "CC BY 2.0", url: "https://commons.wikimedia.org/wiki/File:Pasta_alla_matriciana.jpg" },
+  { dish: "San Sebastián", author: "さえぼー", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Basque-style_cheesecake_in_Pepito,_Tokyo.jpg" },
+  { dish: "Flat White", author: "Tokimemooo", license: "CC0", url: "https://commons.wikimedia.org/wiki/File:Flat_White_by_Nijat_Zayidov.jpg" },
+  { dish: "Türk Kahvesi", author: "Garrett Ziegler", license: "CC BY-SA 4.0", url: "https://commons.wikimedia.org/wiki/File:Turkish_coffee_in_a_traditional_design_cup.jpg" },
 ];
 
 export function formatMenuPrice(price: number, currency: string): string {

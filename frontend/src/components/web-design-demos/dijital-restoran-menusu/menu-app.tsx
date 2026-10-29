@@ -6,6 +6,7 @@ import {
   ALLERGEN_LABELS,
   DIET_TAGS,
   formatMenuPrice,
+  photoCredits,
   type MenuCategory,
   type MenuProduct,
   type MenuTenant,
@@ -562,6 +563,19 @@ export function MenuApp({ tenant, menu }: { tenant: MenuTenant; menu: MenuCatego
           <InfoRow k="Adres" v={tenant.address || "—"} />
           <InfoRow k="Saatler" v={tenant.hoursText || "—"} />
           {tenant.wifiPassword && <InfoRow k="Wi-Fi şifresi" v={tenant.wifiPassword} />}
+          <details className="mt-4 text-[11px]" style={{ color: "var(--ink-3)" }}>
+            <summary className="cursor-pointer font-semibold">Fotoğraf kaynakları (Wikimedia Commons)</summary>
+            <ul className="mt-2 space-y-1">
+              {photoCredits.map((c) => (
+                <li key={c.dish}>
+                  <a href={c.url} target="_blank" rel="noopener noreferrer" className="underline">
+                    {c.dish}
+                  </a>{" "}
+                  · {c.author} · {c.license}
+                </li>
+              ))}
+            </ul>
+          </details>
           <button
             type="button"
             onClick={() => setSheet(null)}
