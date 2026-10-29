@@ -51,8 +51,8 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#090909",
-  colorScheme: "dark",
+  themeColor: "#ffffff",
+  colorScheme: "light",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -64,13 +64,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-full flex flex-col bg-ink text-text">
         {children}
         <Toaster
-          theme="dark"
+          theme="light"
           position="top-center"
           toastOptions={{
             style: {
-              background: "#151515",
-              color: "#F5F5F5",
-              border: "1px solid rgba(201,162,74,0.3)",
+              background: "#ffffff",
+              color: "#252525",
+              border: "1px solid rgba(37,37,37,0.14)",
             },
           }}
         />

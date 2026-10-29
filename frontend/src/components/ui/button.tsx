@@ -5,12 +5,12 @@ import { Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-sm text-sm font-medium tracking-wide transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-lg text-sm font-bold tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-2 focus-visible:ring-offset-ink disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        primary: "bg-gold text-ink hover:bg-gold-light",
-        outline: "border border-gold/60 text-ivory hover:border-gold hover:bg-gold/10",
+        primary: "bg-ivory text-ink hover:bg-gold",
+        outline: "border border-hairline text-ivory hover:border-ivory hover:bg-ivory/5",
         ghost: "text-ivory hover:text-gold",
         link: "text-gold underline-offset-4 hover:underline p-0 h-auto",
       },

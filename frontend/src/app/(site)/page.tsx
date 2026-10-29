@@ -6,6 +6,7 @@ import { ProductCategories } from "@/components/home/product-categories";
 import { CorporateTeaser } from "@/components/home/corporate-teaser";
 import { WhyPortOfis } from "@/components/home/why-port-ofis";
 import { LocationContact } from "@/components/home/location-contact";
+import { BicCristalAnatomy, KuruTogaAnatomy, Lamy2000Anatomy } from "@/components/anatomy/instruments";
 import { getCategories, getServices, getSiteSettings } from "@/lib/api";
 import type { Category, Service, SiteSettings } from "@/lib/types";
 
@@ -52,9 +53,12 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      <Lamy2000Anatomy />
       <SelectedServices services={services} />
+      <KuruTogaAnatomy />
       <PrintingCenterTeaser />
       <ProductCategories categories={categories} />
+      <BicCristalAnatomy />
       <CorporateTeaser />
       <WhyPortOfis />
       <LocationContact settings={settings} />

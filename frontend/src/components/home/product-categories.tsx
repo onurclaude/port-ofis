@@ -11,18 +11,11 @@ export function ProductCategories({ categories }: { categories: Category[] | nul
   return (
     <section className="bg-ink py-24 sm:py-28">
       <Container>
-        <div className="flex flex-col items-start justify-between gap-8 sm:flex-row sm:items-end">
-          <SectionHeading
-            eyebrow="Ürün Dünyamız"
-            title="Kategorilerimizi Keşfedin"
-            description="Kırtasiye ürünlerinden kişiye özel baskı ürünlerine, ihtiyacınıza göre gruplanmış katalogumuza göz atın."
-          />
-          <Button asChild variant="link" className="hidden shrink-0 sm:inline-flex">
-            <Link href="/urunler">
-              Tüm Ürünler <ArrowRight className="size-4" aria-hidden="true" />
-            </Link>
-          </Button>
-        </div>
+        <SectionHeading
+          eyebrow="Ürünler"
+          title="Ürün Dünyamız"
+          description="Kırtasiye ürünlerinden kişiye özel baskı ürünlerine, ihtiyacınıza göre gruplanmış katalogumuza göz atın."
+        />
 
         <div className="mt-14">
           {categories === null && (
@@ -32,13 +25,9 @@ export function ProductCategories({ categories }: { categories: Category[] | nul
             <p className="py-10 text-center text-sm text-muted">Yakında burada.</p>
           )}
           {categories !== null && categories.length > 0 && (
-            <div className="-mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-x-5 gap-y-10 lg:grid-cols-4">
               {categories.map((category, i) => (
-                <Reveal
-                  key={category.id}
-                  delay={i * 0.05}
-                  className="w-[72vw] shrink-0 snap-start sm:w-auto sm:shrink"
-                >
+                <Reveal key={category.id} delay={i * 0.04}>
                   <CategoryItem category={category} />
                 </Reveal>
               ))}
@@ -46,11 +35,13 @@ export function ProductCategories({ categories }: { categories: Category[] | nul
           )}
         </div>
 
-        <Button asChild variant="outline" className="mt-10 w-full sm:hidden">
-          <Link href="/urunler">
-            Tüm Ürünler <ArrowRight className="size-4" aria-hidden="true" />
-          </Link>
-        </Button>
+        <div className="mt-14 flex justify-center">
+          <Button asChild>
+            <Link href="/urunler">
+              Tüm Ürünler <ArrowRight className="size-4" aria-hidden="true" />
+            </Link>
+          </Button>
+        </div>
       </Container>
     </section>
   );
