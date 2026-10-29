@@ -2,7 +2,45 @@
 @import "tw-animate-css";
 
 @theme {
-  /* Brand palette — gold is an accent only, never a dominant fill. */
+  /* Vectary-inspired flat system: white paper, graphite ink, one warm accent
+     taken from the logo gold (deepened so it reads as text on white). Token
+     names are kept from the old dark theme so components flip automatically;
+     `.theme-dark` below restores a graphite band for the opener and footer. */
+  --color-ink: #ffffff;
+  --color-ink-soft: #f7f7f6;
+  --color-surface: #f3f3f1;
+  --color-surface-hover: #ebebe8;
+  --color-gold: #9a7420;
+  --color-gold-light: #b8892a;
+  --color-ivory: #252525;
+  --color-text: #313131;
+  --color-muted: #595959;
+  --color-hairline: rgba(37, 37, 37, 0.16);
+  --color-hairline-soft: rgba(37, 37, 37, 0.09);
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.5rem;
+
+  --shadow-gold-glow: 0 0 0 1px rgba(154, 116, 32, 0.35);
+}
+
+@theme inline {
+  --font-display: var(--font-inter);
+  --font-sans: var(--font-inter);
+  --font-script: var(--font-script-accent);
+}
+
+* {
+  border-color: var(--color-hairline-soft);
+}
+
+html {
+  color-scheme: light;
+}
+
+/* Graphite band: re-maps the tokens locally (logo-card look). */
+.theme-dark {
   --color-ink: #090909;
   --color-ink-soft: #111111;
   --color-surface: #151515;
@@ -14,33 +52,24 @@
   --color-muted: #a5a5a5;
   --color-hairline: rgba(201, 162, 74, 0.22);
   --color-hairline-soft: rgba(245, 245, 245, 0.08);
-
-  --shadow-gold-glow: 0 0 0 1px rgba(201, 162, 74, 0.35), 0 8px 30px -8px rgba(201, 162, 74, 0.25);
-}
-
-@theme inline {
-  --font-display: var(--font-cormorant);
-  --font-sans: var(--font-inter);
-  --font-script: var(--font-script-accent);
-}
-
-@media (prefers-color-scheme: light) {
-  /* The brand is deliberately dark-first across the whole site; we do not
-     offer a light theme (matches tabela/kartvizit reference material). */
-}
-
-* {
-  border-color: var(--color-hairline-soft);
-}
-
-html {
+  background: var(--color-ink);
+  color: var(--color-text);
   color-scheme: dark;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.03em;
+  font-feature-settings: "ss01", "cv11";
 }
 
 body {
   background: var(--color-ink);
   color: var(--color-text);
   font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  font-feature-settings: "ss01", "cv11";
 }
 
 ::selection {
@@ -62,7 +91,7 @@ body {
   background: var(--color-ink);
 }
 ::-webkit-scrollbar-thumb {
-  background: #2a2a2a;
+  background: #cfcfcb;
   border-radius: 999px;
   border: 2px solid var(--color-ink);
 }
@@ -78,7 +107,7 @@ body {
 }
 
 .bg-noise {
-  background-image: radial-gradient(circle at 1px 1px, rgba(245, 245, 245, 0.035) 1px, transparent 0);
+  background-image: radial-gradient(circle at 1px 1px, rgba(37, 37, 37, 0.05) 1px, transparent 0);
   background-size: 22px 22px;
 }
 
@@ -116,8 +145,8 @@ body {
 }
 
 @theme {
-  --shadow-soft: 0 24px 60px -24px rgba(0, 0, 0, 0.65);
-  --shadow-elevated: 0 32px 80px -20px rgba(0, 0, 0, 0.75);
+  --shadow-soft: 0 1px 0 rgba(37, 37, 37, 0.06);
+  --shadow-elevated: 0 14px 34px -18px rgba(37, 37, 37, 0.22);
 }
 
 @media (prefers-reduced-motion: reduce) {

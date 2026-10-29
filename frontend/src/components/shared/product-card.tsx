@@ -9,9 +9,9 @@ import type { Product, StockStatus } from "@/lib/types";
 import { formatPrice } from "@/lib/utils";
 
 const STOCK_LABEL: Record<StockStatus, { label: string; className: string }> = {
-  IN_STOCK: { label: "Stokta", className: "text-emerald-400 border-emerald-400/30 bg-emerald-400/5" },
-  OUT_OF_STOCK: { label: "Stok Dışı", className: "text-red-400 border-red-400/30 bg-red-400/5" },
-  ON_ORDER: { label: "Siparişe Özel", className: "text-gold border-gold/30 bg-gold/5" },
+  IN_STOCK: { label: "Stokta", className: "text-emerald-700 border-emerald-700/25 bg-white" },
+  OUT_OF_STOCK: { label: "Stok Dışı", className: "text-red-700 border-red-700/25 bg-white" },
+  ON_ORDER: { label: "Siparişe Özel", className: "text-gold border-gold/30 bg-white" },
 };
 
 function ProductCardVisual({ product, stock, price }: { product: Product; stock: { label: string; className: string }; price: string | null }) {
@@ -32,17 +32,17 @@ function ProductCardVisual({ product, stock, price }: { product: Product; stock:
           </div>
         )}
         <span
-          className={`absolute right-2.5 top-2.5 rounded-sm border px-2 py-1 text-[10px] font-medium uppercase tracking-wide backdrop-blur-sm ${stock.className}`}
+          className={`absolute right-2.5 top-2.5 rounded-lg border px-2 py-1 text-[10px] font-bold uppercase tracking-wide ${stock.className}`}
         >
           {stock.label}
         </span>
       </div>
       <div className="flex flex-1 flex-col gap-1.5 p-4">
-        <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gold/80">
+        <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">
           {product.category.name}
         </span>
-        <span className="font-display text-base font-medium leading-snug text-ivory">{product.name}</span>
-        {price && <span className="mt-auto pt-1 text-sm text-gold-light">{price}</span>}
+        <span className="text-lg font-bold leading-snug tracking-[-0.03em] text-ivory">{product.name}</span>
+        {price && <span className="mt-auto pt-1 text-base font-bold tracking-[-0.02em] text-gold">{price}</span>}
       </div>
     </>
   );
@@ -56,7 +56,7 @@ export function ProductCard({ product }: { product: Product }) {
     return (
       <Link
         href={`/web-tasarimlari/${product.slug}`}
-        className="group flex flex-col overflow-hidden rounded-sm border border-hairline-soft bg-surface text-left transition-colors duration-300 hover:border-gold/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+        className="group flex flex-col overflow-hidden rounded-lg border border-hairline-soft bg-ink text-left transition-colors duration-300 hover:border-hairline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
       >
         <ProductCardVisual product={product} stock={stock} price={price} />
       </Link>
@@ -68,7 +68,7 @@ export function ProductCard({ product }: { product: Product }) {
       <DialogTrigger asChild>
         <button
           type="button"
-          className="group flex flex-col overflow-hidden rounded-sm border border-hairline-soft bg-surface text-left transition-colors duration-300 hover:border-gold/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
+          className="group flex flex-col overflow-hidden rounded-lg border border-hairline-soft bg-ink text-left transition-colors duration-300 hover:border-hairline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold"
         >
           <ProductCardVisual product={product} stock={stock} price={price} />
         </button>
@@ -84,7 +84,7 @@ export function ProductCard({ product }: { product: Product }) {
             </div>
           )}
         </div>
-        <span className="text-[11px] font-medium uppercase tracking-[0.16em] text-gold/80">
+        <span className="text-[11px] font-bold uppercase tracking-[0.16em] text-muted">
           {product.category.name}
         </span>
         <DialogTitle className="mt-1">{product.name}</DialogTitle>
@@ -92,10 +92,10 @@ export function ProductCard({ product }: { product: Product }) {
           {product.description || "Bu ürün için henüz açıklama eklenmemiş."}
         </DialogDescription>
         <div className="mt-5 flex items-center gap-3">
-          <span className={`rounded-sm border px-2.5 py-1 text-xs font-medium uppercase tracking-wide ${stock.className}`}>
+          <span className={`rounded-lg border px-2.5 py-1 text-xs font-bold uppercase tracking-wide ${stock.className}`}>
             {stock.label}
           </span>
-          {price && <span className="text-lg font-medium text-gold-light">{price}</span>}
+          {price && <span className="text-lg font-bold text-gold">{price}</span>}
         </div>
       </DialogContent>
     </Dialog>

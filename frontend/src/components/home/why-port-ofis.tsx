@@ -5,17 +5,17 @@ import { WHY_PORT_OFIS } from "@/lib/constants";
 
 export function WhyPortOfis() {
   return (
-    <section className="bg-ink py-24 sm:py-28">
+    <section className="border-y border-hairline-soft bg-ink-soft py-24 sm:py-28">
       <Container>
-        <SectionHeading eyebrow="Neden Port Ofis" title="Güvenle Tercih Edilen Bir Adres" align="center" />
+        <SectionHeading eyebrow="Neden Port Ofis" title="Güvenle Tercih Edilen Bir Adres" />
 
-        <div className="mx-auto mt-16 grid max-w-4xl grid-cols-1 gap-x-12 gap-y-12 sm:grid-cols-2">
+        <div className="mt-16 grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
           {WHY_PORT_OFIS.map((item, i) => (
-            <Reveal key={item.title} delay={i * 0.06} className="flex gap-5">
-              <span className="font-display text-3xl text-gold/60 tabular-nums">{String(i + 1).padStart(2, "0")}</span>
-              <div>
-                <h3 className="font-display text-lg font-medium text-ivory">{item.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{item.description}</p>
+            <Reveal key={item.title} delay={i * 0.06}>
+              <span className="text-sm font-bold tabular-nums text-gold">{String(i + 1).padStart(2, "0")}</span>
+              <div className="mt-3 border-t border-hairline pt-5">
+                <h3 className="text-2xl font-bold leading-tight tracking-[-0.04em] text-ivory">{item.title}</h3>
+                <p className="mt-3 text-base leading-snug tracking-[-0.02em] text-muted">{item.description}</p>
               </div>
             </Reveal>
           ))}

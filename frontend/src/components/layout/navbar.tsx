@@ -43,9 +43,8 @@ export function Navbar() {
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-all duration-300",
-        scrolled || menuOpen
-          ? "border-b border-hairline-soft bg-ink/90 backdrop-blur-md"
-          : "border-b border-transparent bg-transparent",
+        "bg-ink/95 backdrop-blur-md",
+        scrolled || menuOpen ? "border-b border-hairline-soft" : "border-b border-transparent",
       )}
     >
       <Container className="flex h-20 items-center justify-between">

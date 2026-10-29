@@ -1,5 +1,4 @@
 import { cn } from "@/lib/utils";
-import { GoldDivider } from "@/components/brand/gold-divider";
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -14,20 +13,22 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = "left",
+  align = "center",
   className,
   titleClassName,
 }: SectionHeadingProps) {
   return (
     <div className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>
-      {eyebrow && (
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gold">{eyebrow}</p>
-      )}
-      <h2 className={cn("font-display text-3xl font-semibold text-ivory sm:text-4xl", titleClassName)}>
+      {eyebrow && <p className="text-xs font-bold uppercase tracking-[0.2em] text-muted">{eyebrow}</p>}
+      <h2
+        className={cn(
+          "mt-4 font-display text-4xl font-black leading-[1.02] tracking-[-0.045em] text-ivory sm:text-5xl",
+          titleClassName,
+        )}
+      >
         {title}
       </h2>
-      <GoldDivider className="mt-5" align={align} />
-      {description && <p className="mt-5 text-base leading-relaxed text-muted">{description}</p>}
+      {description && <p className="mt-5 text-lg leading-snug tracking-[-0.02em] text-muted">{description}</p>}
     </div>
   );
 }
