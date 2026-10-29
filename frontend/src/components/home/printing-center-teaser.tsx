@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Printer } from "lucide-react";
+import { ArrowRight, Check } from "lucide-react";
 import { Container } from "@/components/layout/container";
-import { GoldDivider } from "@/components/brand/gold-divider";
+import { SectionHeading } from "@/components/shared/section-heading";
 import { Reveal } from "@/components/shared/reveal";
 import { Button } from "@/components/ui/button";
 import { PRINTING_OFFERINGS } from "@/lib/constants";
@@ -11,40 +11,37 @@ export function PrintingCenterTeaser() {
 
   return (
     <section className="border-y border-hairline-soft bg-ink-soft py-24 sm:py-28">
-      <Container className="grid grid-cols-1 items-center gap-14 lg:grid-cols-2 lg:gap-20">
+      <Container>
+        <SectionHeading
+          eyebrow="Baskı Merkezi"
+          title="Profesyonel Dijital Baskı Merkezi"
+          description="Renkli ve siyah-beyaz çıktıdan kartvizite, fotoğraf baskısından kişiye özel tasarıma kadar tüm baskı ihtiyaçlarınız için modern ekipman ve deneyimli ekibimizle yanınızdayız."
+        />
+
         <Reveal>
-          <p className="mb-3 text-xs font-medium uppercase tracking-[0.28em] text-gold">Baskı Merkezi</p>
-          <h2 className="font-display text-3xl font-semibold text-ivory sm:text-4xl">
-            Profesyonel Dijital Baskı Merkezi
-          </h2>
-          <GoldDivider className="mt-5" />
-          <p className="mt-6 max-w-lg text-base leading-relaxed text-muted">
-            Renkli ve siyah-beyaz çıktıdan kartvizite, fotoğraf baskısından kişiye özel tasarıma kadar tüm baskı
-            ihtiyaçlarınız için modern ekipman ve deneyimli ekibimizle yanınızdayız.
+          <ul className="mx-auto mt-14 grid max-w-4xl grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {preview.map((item) => (
+              <li
+                key={item.title}
+                className="flex items-center gap-3 rounded-lg border border-hairline-soft px-5 py-4 text-base font-medium tracking-[-0.02em] text-ivory"
+              >
+                <Check className="size-4 shrink-0 text-gold" aria-hidden="true" />
+                {item.title}
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 text-center text-sm text-muted">
+            +{PRINTING_OFFERINGS.length - preview.length} hizmet daha
           </p>
-          <Button asChild className="mt-9">
+        </Reveal>
+
+        <div className="mt-10 flex justify-center">
+          <Button asChild>
             <Link href="/baski-merkezi">
               Baskı Merkezini Keşfet <ArrowRight className="size-4" aria-hidden="true" />
             </Link>
           </Button>
-        </Reveal>
-
-        <Reveal delay={0.1}>
-          <div className="relative rounded-sm border border-hairline bg-ink p-8 sm:p-10">
-            <Printer className="mb-6 size-7 text-gold" aria-hidden="true" />
-            <ul className="grid grid-cols-2 gap-x-6 gap-y-4">
-              {preview.map((item) => (
-                <li key={item.title} className="flex items-center gap-2.5 text-sm text-ivory/85">
-                  <span className="size-1 shrink-0 rounded-full bg-gold" aria-hidden="true" />
-                  {item.title}
-                </li>
-              ))}
-            </ul>
-            <p className="mt-6 border-t border-hairline-soft pt-5 text-xs text-muted">
-              +{PRINTING_OFFERINGS.length - preview.length} hizmet daha
-            </p>
-          </div>
-        </Reveal>
+        </div>
       </Container>
     </section>
   );

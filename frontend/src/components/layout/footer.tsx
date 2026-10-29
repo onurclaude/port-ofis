@@ -1,6 +1,6 @@
+import Image from "next/image";
 import Link from "next/link";
 import { MapPin, Phone } from "lucide-react";
-import { Logo } from "@/components/brand/logo";
 import { Container } from "@/components/layout/container";
 import { FacebookIcon, InstagramIcon } from "@/components/shared/social-icons";
 import { NAV_LINKS, FALLBACK_ADDRESS, FALLBACK_PHONE } from "@/lib/constants";
@@ -13,10 +13,16 @@ export function Footer({ settings }: { settings: SiteSettings | null }) {
   const telHref = `tel:${phone.replace(/[^0-9+]/g, "")}`;
 
   return (
-    <footer className="border-t border-hairline-soft bg-ink-soft">
+    <footer className="theme-dark border-t border-hairline-soft bg-ink">
       <Container className="grid grid-cols-1 gap-12 py-16 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
-          <Logo />
+          <Image
+            src="/logo.jpg"
+            alt="Port Ofis — portofiskirtasiye.com.tr"
+            width={707}
+            height={353}
+            className="w-full max-w-[16rem] rounded-lg"
+          />
           <p className="mt-5 max-w-xs text-sm leading-relaxed text-muted">
             Kırtasiyeden dijital baskıya, kurumsal ofis çözümlerinden kişiye özel ürünlere — Eryaman&apos;da tek
             adres.
